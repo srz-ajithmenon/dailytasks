@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bio-data</title>
+
+        <style>
+           
+
+            table 
+            {
+                border: 5px solid black;
+                font-weight: bold;
+            } 
+            th, td {
+                align-items: center;
+                border-collapse: collapse;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 15px;
+            }
+        
+
+        </style>
+
+    </head>
+    <body>
+
+
+        <center><h1> Bio-data</h1></center>
+
+       
+        <hr>
+
+        <center>
+            <form name="form1"  onsubmit="return validate()" method="post">
+
+                <table style="margin: 20px; background-color: rgba(170, 170, 170, 0.815);">
+
+                    <tr>
+                        <td>First Name</td><td>  <input type="text" name="pname"> </td>
+                    </tr>
+
+                    <tr>
+                        <td>Age </td><td> <input type="text" name="page"> </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sex </td>
+                        <td> 
+                            <input type="radio" name="pgender" value="Male">Male 
+                            <input type="radio" name="pgender" value="Female">Female 
+                            <input type="radio" name="pgender" value="Others">Others 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Fathers Name  </td><td>  <input type="text" name="fname"> </td>
+                    </tr>
+
+                    <tr>
+                        <td>Occupation  </td><td> <input type="text" name="occup"> </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="button" onclick="validate()" style="font-weight: bold;">Submit</button>
+                            <input type="reset" style="font-weight: bold;">
+                        </td>
+                    </tr>
+
+                </table>
+
+            </form>
+
+        </center>
+
+
+        <script>
+            function validate()
+            {
+            
+                var name =document.forms["form1"]["pname"].value;
+                var age = document.forms["form1"]["page"].value;
+                var gender = document.forms["form1"]["pgender"].value;
+                var father = document.forms["form1"]["fname"].value;
+                var occup = document.forms["form1"]["occup"].value;
+                let text;
+                
+                if(name.charAt(0) == name.charAt(0).toUpperCase() && name.length >0)
+                {
+                    if(!isNaN(age) && age > 0 && age < 100)
+                    {
+                        if(gender.length >0)
+                        {
+                           if(father.charAt(0) == father.charAt(0).toUpperCase()  && father.length >0)
+                            {
+                                if(occup.length >0)
+                                {
+                                    window.open("");
+                                }
+                                else
+                                {
+                                    window.alert("Enter Occupation");
+                                }
+                            }
+                            else
+                            {
+                                window.alert("Enter Father's name \n 'First Letter should be Capital'");
+                            }
+                        }
+                        else
+                        {
+                            window.alert("Select a Gender");
+                        }
+
+                       
+                    }
+                    else
+                    {
+                        window.alert("Enter Age (between 0 and 100)");
+                    }
+
+
+
+                    
+                }
+                else
+                {
+                    window.alert("Enter the Your name \n 'First Letter should be Capital'");
+                }
+               
+            }
+            
+        </script>
+
+    </body>
+</html>
