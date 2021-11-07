@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modal Pop-up</title>
+        <style>
+            
+            .modal 
+            {
+                display: none;
+                position: fixed;
+                z-index: 1; 
+                padding-top: 100px; 
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.4);
+            }
+
+
+            .modal-content 
+            {
+                background-color: #fefefe;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 60%;
+            }
+        </style>
+
+    </head>
+    <body>
+
+
+        <button id="myBtn" style="margin: 30px;">Open Modal pop-up</button>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <p>
+                    this is an example of modal pop-up
+                    <button id="clo" style="float: right; margin: 5px;">close</button>
+                    <button id="opens" style="float: right; margin: 5px;">Visit</button>
+                </p>
+            </div>
+
+        </div>
+
+        <script>
+
+            var modal = document.getElementById("myModal");
+
+            var btn = document.getElementById("myBtn");
+
+            var op = document.getElementById("opens");
+            var cl = document.getElementById("clo");
+
+
+            btn.onclick = function() 
+            {
+                modal.style.display = "block";
+            }
+
+            op.onclick = function() 
+            {
+                window.open();
+                modal.style.display = "none";
+            }
+
+            cl.onclick = function() 
+            {
+                modal.style.display = "none";
+            }
+
+        </script>
+    </body>
+</html>
