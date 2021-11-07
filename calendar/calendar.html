@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'>
+    
+</head>
+<body>
+
+    From Date: <input type="text" id="from"> 
+   
+    To Date: <input type="text" id="to">
+
+    <button id="print">Print</button>
+   
+    <div id="result"></div>
+        
+
+    <script>
+       
+        $(function() {
+            $("#from").datepicker({
+                dateFormat: 'dd-mm-yy',
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+
+        $(function() {
+            $("#to").datepicker({
+                dateFormat: 'dd-mm-yy',  
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+
+        $('#from').change(function() {
+            startDate = $(this).datepicker('getDate');
+            $("#to").datepicker("option", "minDate", startDate);
+        })
+
+        $('#to').change(function() {
+            endDate = $(this).datepicker('getDate');
+            $("#from").datepicker("option", "maxDate", endDate);
+        })
+
+        $('#print').on('click',function() {
+            var months;
+            months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
+            months -= startDate.getMonth();
+            months += endDate.getMonth();
+
+            var m= months <= 0 ? 0 : months;
+                
+            $('#result').datepicker('destroy');
+            $( function() {
+                var numberOfMonths = "";
+                $( "#result" ).datepicker({
+                    defaultDate : startDate,
+                       numberOfMonths: m+1
+                })
+            })    
+        })    
+   
+
+    </script>
+
+
+</body>
+</html>
